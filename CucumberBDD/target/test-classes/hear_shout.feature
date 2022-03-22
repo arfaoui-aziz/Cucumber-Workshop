@@ -12,12 +12,20 @@ Feature: Shout
     When Sean Shouts "free bagels at Sean's"
     Then Lucy hears Sean's message
 
-#  Scenario: Listener is within range
-#    Given Lucy is located 15 meter from Sean
-#    When Sean Shouts "free bagels at Sean's"
-#    Then Lucy hears Sean's message
+  Scenario: Listener is within range
+    Given the range is 100
+    And people are located at
+      | name | location |
+      | Sean | 0        |
+      | Lucy | 50       |
+    When Sean Shouts
+    Then Lucy hears Sean's message
 
-  #Scenario: Listener is within range
-   # Given Lucy is standing 15 meter from Sean
-    #When Sean Shouts "free coffe"
-    #Then Lucy hears Sean's message
+  Scenario: Listener is out of range
+    Given Lucy is standing 15 meter from Sean
+    And people are located at
+      | name | location |
+      | Sean | 0        |
+      | Lucy | 150      |
+    When Sean Shouts
+    Then Larry hears Sean's message

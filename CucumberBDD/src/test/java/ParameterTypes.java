@@ -5,7 +5,7 @@ public class ParameterTypes {
 
 
 
-    @ParameterType("Lucy|Sean")
+    @ParameterType("Lucy|Sean|Larry")
     public Person person(String name){
         return new Person(name);
     }
